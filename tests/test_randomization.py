@@ -1,7 +1,9 @@
 import pytest
 import sqlite3
+import os
 
-DB_PATH = "../db/ships.db"  # Adjust if needed
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DB_PATH = os.path.join(ROOT_DIR, "db", "ships.db")
 
 def get_ship_data(conn):
     c = conn.cursor()

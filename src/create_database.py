@@ -3,7 +3,10 @@
 import os
 import sqlite3
 
-def create_database(db_path="../db/ships.db"):
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DB_PATH = os.path.join(ROOT_DIR, "db", "ships.db")
+
+def create_database(db_path=DB_PATH):
     # Ensure the db directory exists
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
     conn = sqlite3.connect(db_path)

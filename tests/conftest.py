@@ -18,7 +18,8 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="session")
 def randomized_db_path(pytestconfig, tmp_path_factory):
     # Path to the original DB
-    original_db = os.path.abspath(os.path.join(os.path.dirname(__file__), "../db/ships.db"))
+    ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    original_db = os.path.join(ROOT_DIR, "db", "ships.db")
 
     if not os.path.exists(original_db):
         raise FileNotFoundError(f"Original DB not found at: {original_db}")

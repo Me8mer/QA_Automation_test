@@ -5,7 +5,8 @@ import sqlite3
 import random
 import sys
 
-DB_PATH = "../db/ships.db"
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DB_PATH = os.path.join(ROOT_DIR, "db", "ships.db")
 
 def random_values(n):
     return [random.randint(1, 20) for _ in range(n)]
